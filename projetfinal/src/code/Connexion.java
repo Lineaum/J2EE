@@ -33,8 +33,15 @@ public class Connexion extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		ConnexionForm bf = new ConnexionForm();
+		String login = bf.verifierNom(request);
+		if (bf.getErreurs().isEmpty()) {
+			request.getSession().setAttribute("login_session", "Mdp");
+			request.getRequestDispatcher("/WEB-INF/Connexion.jsp").forward(request, response);
+		} else {
+			request.setAttribute("erreurs", bf.getErreurs());
+			this.doGet(request, response);
+		}
 
+	}
 }
