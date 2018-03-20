@@ -14,5 +14,7 @@
 <input type="password" id="Mdp"/><br />
 <button type="submit" >Valider la connexion</button>
 </form>
+<p> ${ erreurs.login } </p>
+<p> ${ erreurs.Mdp } </p>
 </body>
 </html>

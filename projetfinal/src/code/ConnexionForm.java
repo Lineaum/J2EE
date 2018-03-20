@@ -13,10 +13,19 @@ public class ConnexionForm{
 	
 	public String verifierNom(HttpServletRequest request) {
 		String login = request.getParameter("login");
+		String Mdp = request.getParameter("Mdp");
 		if ((login != null)&&(login.length() >=3)) {
 			return login;
+		} else if ((Mdp !=null) && (Mdp.length() >=3)) {
+			return Mdp;
+		} else{
+			erreurs.put("login", new String("Login invalide (longeur < 3)")); 
+		}
+		
+		if ((Mdp !=null) && (Mdp.length() >=3)) {
+			return Mdp;
 		} else {
-			erreurs.put("login", new String("Login invalide (longeur <3")); 
+			erreurs.put("Mdp", new String("Mot de passe invalide (longeur < 3)")); 
 		}
 		return null;
 	}
