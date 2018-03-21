@@ -37,7 +37,7 @@ public class Connexion extends HttpServlet {
 		String login = bf.verifierNom(request);
 		if (bf.getErreurs().isEmpty()) {
 			request.getSession().setAttribute("login", "Mdp");
-			request.getRequestDispatcher("/WEB-INF/Connexion.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/Chat.jsp").forward(request, response);
 		} else {
 			request.setAttribute("erreurs", bf.getErreurs());
 			this.doGet(request, response);
