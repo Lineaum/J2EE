@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post" action="Connexion">
+<form method="post" action="Connexion#Envoyer">
 <label>Nom de login</label>
 <input type="text" id="login" name="login"/><br />
 <label>Mot de passe</label>

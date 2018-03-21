@@ -1,6 +1,5 @@
 #UL li {
   border: 1px solid #ddd;
-  margin-left:10px;
   margin-right:10px;
   margin-top: -1px; /* Prevent double borders */
   background-color: #f6f6f6;
@@ -9,4 +8,20 @@
   font-size: 14px;
   color: black;
   display: block;
+}
+#UL{
+	height:900px;
+  	border:1px solid #ccc;
+  	font:16px/26px Georgia, Garamond, Serif;
+  	overflow:auto;
+}
+
+#Message{
+	font-size:20px;
+	width:90%;
+}
+
+#Envoyer{
+	font-size:20px;
+	width:8.5%;
 }
