@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post">
+<form method="post" action="Connexion">
 <label>Nom de login</label>
-<input type="text" id="login"/><br />
+<input type="text" id="login" name="login"/><br />
 <label>Mot de passe</label>
-<input type="password" id="Mdp"/><br />
+<input type="password" id="Mdp" name="Mdp"/><br />
 <button type="submit" >Valider la connexion</button>
 </form>
 <p> ${ erreurs.login } </p>

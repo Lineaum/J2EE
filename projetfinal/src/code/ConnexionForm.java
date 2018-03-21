@@ -1,12 +1,7 @@
 package code;
 
 import java.util.*;
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class ConnexionForm{
 	HashMap<String,String> erreurs;
@@ -19,13 +14,17 @@ public class ConnexionForm{
 	public String verifierNom(HttpServletRequest request) {
 		String login = request.getParameter("login");
 		String Mdp = request.getParameter("Mdp");
-		
-		if ((login != null)&&(login.length() >=3)&&(Mdp != null) && (Mdp.length() >=3)) {
-			request.getSession().setAttribute("login_session", login);
-			request.getRequestDispatcher("/WEB-INF/ReponseFormulaire.jsp").forward( request, response );
+
+		if ((login!=null)&&(login.length() >=3)) {
+			return login;
 		} else{
-			request.setAttribute("erreur",new String("Nom invalide (longueur <3)"));
-			this.doGet(request, response);
+			erreurs.put("login", new String("Login invalide (longeur < 3)")); 
+		}
+		
+		if ((login!=null)&&(Mdp.length() >=3)) {
+			return Mdp;
+		} else {
+			erreurs.put("Mdp", new String("Mot de passe invalide (longeur < 3)"));
 		}
 		return null;
 	}
