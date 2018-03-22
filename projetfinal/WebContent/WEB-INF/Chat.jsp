@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>Chat</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="css/Affichage.css" rel="stylesheet">
 <title>Insert title here</title>
@@ -29,41 +31,9 @@
 				<tr>
 					<td>
 						<ul id="UL" style="padding-left: 0px; ">
-							<li>Test1</li>
-							<li>Test2</li>
-							<li>Test3</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test4</li>
-							<li>Test5</li>
-							<li>Test6</li>
-							<li>Test7</li>
-							<li>Test8</li>
-							<li>Test9</li>
+					        <c:forEach items="${ messages }" var="message" varStatus="boucle">
+            					<li>${ message }</li>
+        					</c:forEach>
 							<br/>
 							<form method="post" action="SendMessage">
 								<input type="text"/ id="Message" maxlength="150"/>

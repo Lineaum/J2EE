@@ -1,11 +1,15 @@
 package code;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sdzee.bdd.TestJDBC;
 
 /**
  * Servlet implementation class Connexion
@@ -13,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Connexion")
 public class Connexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static final String ATT_MESSAGES = "messages";
+    public static final String VUE          = "/WEB-INF/Chat.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,7 +43,10 @@ public class Connexion extends HttpServlet {
 		String login = bf.verifierNom(request);
 		if (bf.getErreurs().isEmpty()) {
 			request.getSession().setAttribute("login", "Mdp");
-			request.getRequestDispatcher("/WEB-INF/Chat.jsp").forward(request, response);
+	        TestJDBC test = new TestJDBC();
+	        List<String> messages = test.executerTests( request );
+	        request.setAttribute( ATT_MESSAGES, messages );
+	        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 		} else {
 			request.setAttribute("erreurs", bf.getErreurs());
 			this.doGet(request, response);
