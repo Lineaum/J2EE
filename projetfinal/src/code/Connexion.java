@@ -33,6 +33,7 @@ public class Connexion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher( "/WEB-INF/Connexion.jsp" ).forward( request, response );
+	
 	}
 
 	/**
@@ -42,7 +43,7 @@ public class Connexion extends HttpServlet {
 		ConnexionForm bf = new ConnexionForm();
 		String login = bf.verifierNom(request);
 		if (bf.getErreurs().isEmpty()) {
-			request.getSession().setAttribute("login", "Mdp");
+			request.getSession().setAttribute("LoginSession", login);
 	        TestJDBC test = new TestJDBC();
 	        List<String> messages = test.executerTests( request );
 	        request.setAttribute( ATT_MESSAGES, messages );

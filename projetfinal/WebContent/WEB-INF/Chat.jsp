@@ -16,12 +16,17 @@
 			<table border=0>
 				<tr>
 					<td>
-						<p><a href="Connexion?Test1#Envoyer">Test1</a></p>
+						<p><a href="Connexion?Salon=Test1#Envoyer">Test1</a></p>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<p><a href="Connexion?Test2#Envoyer">Test2</a></p>
+						<p><a href="Connexion?Salon=Test2#Envoyer">Test2</a></p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p><c:out value="${ LoginSession}"/></p>
 					</td>
 				</tr>
 			</table>
@@ -36,7 +41,7 @@
         					</c:forEach>
 							<br/>
 							<form method="post" action="SendMessage">
-								<input type="text"/ id="Message" maxlength="150"/>
+								<input type="text" id="Message" maxlength="150"/>
 								<button type="submit" id="Envoyer">Envoyer</button>
 							</form>
 						</ul>

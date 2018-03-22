@@ -21,10 +21,20 @@ public class ConnexionForm{
 			erreurs.put("login", new String("Login invalide (longeur < 3)")); 
 		}
 		
-		if ((login!=null)&&(Mdp.length() >=3)) {
+		if ((Mdp!=null)&&(Mdp.length() >=3)) {
 			return Mdp;
 		} else {
 			erreurs.put("Mdp", new String("Mot de passe invalide (longeur < 3)"));
+		}
+		return null;
+	}
+	
+	public String verifierMessage(HttpServletRequest request) {
+		String Message = request.getParameter("Message");
+		if ((Message!=null)&&(Message.length() <=150)) {
+			return Message;
+		} else{
+			erreurs.put("Message", new String("Message trop long (longeur > 150)")); 
 		}
 		return null;
 	}
