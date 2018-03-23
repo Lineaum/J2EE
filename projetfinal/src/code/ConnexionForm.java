@@ -28,17 +28,6 @@ public class ConnexionForm{
 		}
 		return null;
 	}
-	
-	public String verifierMessage(HttpServletRequest request) {
-		String Message = request.getParameter("Message");
-		if ((Message!=null)&&(Message.length() <=150)) {
-			return Message;
-		} else{
-			erreurs.put("Message", new String("Message trop long (longeur > 150)")); 
-		}
-		return null;
-	}
-	
 	public HashMap<String,String> getErreurs(){
 		return erreurs;
 	}
