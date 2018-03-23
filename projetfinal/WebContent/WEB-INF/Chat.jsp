@@ -41,9 +41,10 @@
         					</c:forEach>
 							<br/>
 							<form method="post" action="SendMessage">
-								<input type="text" id="Message" maxlength="150"/>
-								<button type="submit" id="Envoyer">Envoyer</button>
+								<input type="text" id="Message" name="Message" maxlength="150"/>
+								<button type="submit" id="Envoyer" name="Envoyer" >Envoyer</button>
 							</form>
+							<a href="Connexion#Envoyer" ><input type="submit" value="refresh"/></a>
 						</ul>
 					</td>
 				</tr>

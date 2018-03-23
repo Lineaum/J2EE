@@ -17,5 +17,7 @@
 <input type="password" id="Mdp"/><br />
 <button type="submit" >Valider le formulaire d'inscription</button>
 </form>
+
+<p> ${ erreurs } </p>
 </body>
 </html>
