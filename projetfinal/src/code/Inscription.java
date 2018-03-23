@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sdzee.bdd.TestJDBC;
+
 /**
  * Servlet implementation class Inscription
  */
@@ -34,6 +36,11 @@ public class Inscription extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String login = request.getParameter("loginInsc");
+		String AdrMail = request.getParameter("AdrMail");
+		String Mdp = request.getParameter("Mdp");
+		TestJDBC TestJDBC = new TestJDBC();
+		TestJDBC.Inscription(login,AdrMail,Mdp);
 		doGet(request, response);
 	}
 

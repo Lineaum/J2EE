@@ -45,7 +45,7 @@ public class Connexion extends HttpServlet {
 		if (bf.getErreurs().isEmpty()) {
 			request.getSession().setAttribute("LoginSession", login);
 	        TestJDBC test = new TestJDBC();
-	        List<String> messages = test.executerTests( request );
+	        List<String> messages = test.MessageSent( request );
 	        request.setAttribute( ATT_MESSAGES, messages );
 	        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 		} else {
